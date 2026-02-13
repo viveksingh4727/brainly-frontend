@@ -1,3 +1,5 @@
+import type { ReactElement } from "react";
+
 type Variants = "primary" | "secondary";
 type Sizes = 'sm' | 'md' | 'lg';
 
@@ -6,8 +8,8 @@ interface ButtonProps {
   variant: Variants;
   size: Sizes
   text: string;
-  startIcon?: any;
-  endIcon?: any;
+  startIcon?: ReactElement;
+  endIcon?: ReactElement;
   onClick: () => void;
 }
 
@@ -28,6 +30,7 @@ export const Button = (props: ButtonProps) => {
       onClick={props.onClick}
       className={`${variantStyles[props.variant]} ${sizeStyles[props.size]} rounded-md font-medium flex items-center gap-2`}
     >
+        {props.startIcon ? <div className="pr-2">{props.startIcon}</div> : null}
       {props.text}
     </button>
   );

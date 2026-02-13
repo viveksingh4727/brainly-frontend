@@ -1,4 +1,5 @@
 import { Button } from "./components/ui/button";
+import { PlusIcon } from "./icons/PlusIcon";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         variant="secondary"
         size="sm"
         text="Add Content"
+        startIcon={<PlusIcon size="md"/>}
         onClick={() => {}}/>
       
     </div>
