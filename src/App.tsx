@@ -1,14 +1,21 @@
+
+import { useState } from "react";
 import { Button } from "./components/ui/button";
 import { Card } from "./components/ui/Card";
+import { Modal } from "./components/ui/Modal";
 import { PlusIcon } from "./icons/PlusIcon";
 import { ShareIcon } from "./icons/ShareIcon";
 
 
 
 function App() {
+  const [ modalOpen, setModalOpen ] = useState(false);
   return (
     <>
-    <nav className="w-full backdrop-blur-md bg-white/70 border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+    <Modal open={modalOpen} onClose={ () =>
+      setModalOpen(false)
+    }/>
+    <nav className="w-full backdrop-blur-md bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
       <div className="flex items-center gap-4">
         <Button
           variant="secondary"
@@ -22,7 +29,7 @@ function App() {
           size="md"
           text="Add Content"
           startIcon={<PlusIcon size="md" />}
-          onClick={() => {}}
+          onClick={() => setModalOpen(true)}
         />
       </div>
 
