@@ -30,7 +30,7 @@ export const Modal = ({open, onClose}: ModalProps) => {
 
             <div className="absolute inset-0 bg-black/50 opacity-50" onClick={onClose}></div>
             <div className="flex flex-col space-y-3 relative bg-white rounded-xl shadow-xl p-6 w-96">
-                <div className="text-gray-400 ml-80 cursor-pointer" onClick={onClose} >
+                <div className="text-gray-400 justify-end cursor-pointer" onClick={onClose} >
                     <CloseIcon />
                 </div>
                 <Input placeholder={"Title"} />
