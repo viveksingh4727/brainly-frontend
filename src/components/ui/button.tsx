@@ -11,6 +11,7 @@ interface ButtonProps {
   startIcon?: ReactElement;
   endIcon?: ReactElement;
   onClick?: () => void;
+  fullWidth?: boolean;
 }
 
 const variantStyles = {
@@ -36,6 +37,7 @@ export const Button = (props: ButtonProps) => {
         rounded-lg  
         flex items-center justify-center gap-2
         active:scale-95
+        ${props.fullWidth ? " w-full" : ""}
       `}
     >
       {props.startIcon && (
