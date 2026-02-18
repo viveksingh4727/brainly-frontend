@@ -61,9 +61,8 @@ const ShareModal = ({ open, onClose }: ShareModalProps) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-white rounded-2xl shadow-2xl p-6 w-[420px] flex flex-col gap-5 z-10">
+      <div className="relative bg-white rounded-2xl shadow-2xl p-6 w-105 flex flex-col gap-5 z-10">
 
-        {/* Header */}
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-lg font-bold text-gray-900">Share your Brain</h2>
@@ -74,7 +73,6 @@ const ShareModal = ({ open, onClose }: ShareModalProps) => {
           </button>
         </div>
 
-        {/* Link area */}
         {shared && shareLink ? (
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3">

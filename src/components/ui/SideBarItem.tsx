@@ -21,7 +21,7 @@ export const SideBarItem = ({ text, icon, active, onClick, badge }: SideBarItemP
       <div className="shrink-0">{icon}</div>
       <span className="text-sm font-medium flex-1">{text}</span>
       {badge !== undefined && badge > 0 && (
-        <span className={`text-xs px-1.5 py-0.5 rounded-full font-semibold min-w-[20px] text-center
+        <span className={`text-xs px-1.5 py-0.5 rounded-full font-semibold min-w-5 text-center
           ${active ? "bg-purple-100 text-purple-700" : "bg-gray-100 text-gray-500"}`}>
           {badge}
         </span>
