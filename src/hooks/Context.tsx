@@ -18,7 +18,7 @@ interface ContentContextType {
   allTags: string[];
 }
 
-// single declaration with export — lets Card.tsx import it directly for null-safe usage
+
 export const ContentContext = createContext<ContentContextType | null>(null);
 
 export const ContentProvider = ({ children }: { children: ReactNode }) => {
