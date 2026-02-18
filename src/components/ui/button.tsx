@@ -1,12 +1,12 @@
+
 import type { ReactElement } from "react";
 
 type Variants = "primary" | "secondary";
-type Sizes = 'sm' | 'md' | 'lg';
-
+type Sizes = "sm" | "md" | "lg";
 
 interface ButtonProps {
   variant: Variants;
-  size: Sizes
+  size: Sizes;
   text: string;
   startIcon?: ReactElement;
   endIcon?: ReactElement;
@@ -16,40 +16,37 @@ interface ButtonProps {
 
 const variantStyles = {
   primary:
-    "bg-purple-600 text-white font-extralight hover:bg-purple-700 shadow-md hover:shadow-lg transition-all duration-200",
+    "bg-purple-600 text-white hover:bg-purple-700 shadow-sm hover:shadow-md active:bg-purple-800",
   secondary:
-    "bg-purple-100 text-purple-600 font-extralight hover:bg-purple-200 border border-purple-200 transition-all duration-200",
+    "bg-white text-purple-600 border border-purple-200 hover:bg-purple-50 hover:border-purple-300 shadow-sm",
 };
 
 const sizeStyles = {
-    sm: "px-3 py-1 text-sm",
-    md: "px-4 py-2 text-md",
-    lg: "px-6 py-3 text-base",
-}
+  sm: "px-3 py-1.5 text-xs gap-1.5",
+  md: "px-4 py-2 text-sm gap-2",
+  lg: "px-5 py-2.5 text-sm gap-2",
+};
 
-export const Button = (props: ButtonProps) => {
+export const Button = ( {onClick, variant, size, fullWidth, startIcon, text, endIcon }:ButtonProps) => {
   return (
     <button
-      onClick={props.onClick}
+      onClick={onClick}
       className={`
-        ${variantStyles[props.variant]} 
-        ${sizeStyles[props.size]} 
-        rounded-lg  
-        flex items-center justify-center gap-2
-        active:scale-95
-        ${props.fullWidth ? " w-full" : ""}
+        ${variantStyles[variant]}
+        ${sizeStyles[size]}
+        rounded-lg font-medium
+        flex items-center justify-center
+        transition-all duration-150
+        active:scale-95 cursor-pointer
+        ${fullWidth ? "w-full" : ""}
       `}
     >
-      {props.startIcon && (
-        <span className="flex items-center">
-          {props.startIcon}
-        </span>
+      {startIcon && (
+        <span className="flex items-center shrink-0">{startIcon}</span>
       )}
-      {props.text}
-      {props.endIcon && (
-        <span className="flex items-center">
-          {props.endIcon}
-        </span>
+      {text}
+      {endIcon && (
+        <span className="flex items-center shrink-0">{endIcon}</span>
       )}
     </button>
   );
