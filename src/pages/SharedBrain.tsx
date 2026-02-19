@@ -138,6 +138,7 @@ export const SharedBrain = () => {
                 link={item.link}
                 types={item.types}
                 tag={item.tag}
+                readonly={true}               
               />
             ))}
           </div>

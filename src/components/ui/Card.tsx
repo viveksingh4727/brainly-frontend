@@ -15,6 +15,7 @@ interface CardProps {
   types: "twitter" | "youtube";
   tag?: Tag | null;
   onDelete?: () => void;
+  readonly?: boolean;
 }
 
 interface YoutubeThumbnailProps {
@@ -42,7 +43,7 @@ const YoutubeThumbnail = ({ videoId, title, link }: YoutubeThumbnailProps) => {
   );
 };
 
-export const Card = ({ _id, title, link, types, tag, onDelete }: CardProps) => {
+export const Card = ({ _id, title, link, types, tag, onDelete, readonly }: CardProps) => {
   const [videoId, setVideoId] = useState<string | null>(null);
   const context = useContext(ContentContext);
   const isFavorite = context?.isFavorite ?? (() => false);
@@ -109,6 +110,7 @@ export const Card = ({ _id, title, link, types, tag, onDelete }: CardProps) => {
           {isYoutube ? "YouTube" : "Twitter"}
         </div>
 
+        {!readonly &&
         <button
           onClick={(e) => { e.stopPropagation(); onDelete?.(); }}
           className="absolute top-3 right-3 p-1.5 rounded-full bg-white/90 text-gray-500 hover:bg-red-50 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all duration-200 shadow-sm"
@@ -116,8 +118,10 @@ export const Card = ({ _id, title, link, types, tag, onDelete }: CardProps) => {
         >
           <DeleteIcon />
         </button>
+        }
 
 
+        {!readonly &&
         <button
           onClick={(e) => { e.stopPropagation(); toggleFavorite(_id); }}
           className={`absolute bottom-3 right-3 p-1.5 rounded-full bg-white/90 transition-all duration-200 shadow-sm
@@ -129,6 +133,7 @@ export const Card = ({ _id, title, link, types, tag, onDelete }: CardProps) => {
         >
           <FavouriteIcon  />
         </button>
+        }
       </div>
 
       <div className="px-4 py-3 flex flex-col gap-2">
