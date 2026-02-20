@@ -147,7 +147,7 @@ export const SharedBrain = () => {
 
       <div className="border-t border-gray-100 bg-white py-6">
         <div className="max-w-6xl mx-auto px-8 flex items-center justify-between">
-          <p className="text-xs text-gray-400">Powered by <span className="font-semibold text-purple-500">Brainly</span></p>
+          <p className="text-xs text-gray-400">Made with ❤️ by <span className="font-semibold text-purple-500">Vivek Singh</span></p>
           <a href="/signup" className="text-xs text-purple-600 font-medium hover:underline">
             Build your own brain →
           </a>
